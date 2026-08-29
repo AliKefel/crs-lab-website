@@ -14,7 +14,7 @@ export const researchThrusts: ResearchThrust[] = [
     summary:
       'Reading human mental and emotional state from limited, noisy signal to support collaboration.',
     description:
-      'The lab builds perception methods aimed at inferring human mental and emotional states for collaborative robotics, going beyond conventional computer vision. This includes designing model representations of human behavior and cognitive state that remain trainable on datasets that are small, noisy, or incomplete — the kind of data collaborative settings actually produce.',
+      'The lab builds perception methods aimed at inferring human mental and emotional states for collaborative robotics, going beyond conventional computer vision. This includes designing model representations of human behavior and cognitive state that remain trainable on datasets that are small, noisy, or incomplete.',
   },
   {
     slug: 'decision-making',

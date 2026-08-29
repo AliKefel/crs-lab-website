@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { people, peopleGroupOrder, peopleGroupLabels, getInitials } from '../lib/people';
+
+const groups = peopleGroupOrder.filter((key) => people[key].length > 0);
+---
+
+<BaseLayout title="People" description="Faculty, students, and alumni of the CRS Lab.">
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">People</span>
+    <h1>Lab members</h1>
+    <p class="text-text max-w-[62ch] text-lg">The people behind the CRS Lab's research.</p>
+  </section>
+
+  {
+    groups.length === 0 ? (
+      <section class="wrap pb-16">
+        <p class="text-muted">Lab members will be listed here soon.</p>
+      </section>
+    ) : (
+      groups.map((key) => (
+        <section class="border-rule border-t">
+          <div class="wrap py-12">
+            <span class="eyebrow">{peopleGroupLabels[key]}</span>
+            <h2 class="sr-only">{peopleGroupLabels[key]}</h2>
+            <ul class="mt-6 grid list-none grid-cols-1 gap-x-8 gap-y-10 p-0 md:grid-cols-3">
+              {people[key].map((person) => (
+                <li>
+                  {person.photo ? (
+                    <figure class="m-0 mb-3">
+                      <img src={person.photo} alt={person.name} class="aspect-square w-full object-cover" />
+                    </figure>
+                  ) : (
+                    <div class="border-rule bg-paper mb-3 flex aspect-square w-full items-center justify-center border" aria-hidden="true">
+                      <span class="font-serif text-faint text-4xl">{getInitials(person.name)}</span>
+                    </div>
+                  )}
+                  <h3 class="mb-1">{person.name}</h3>
+                  <p class="meta mb-1">{person.role}</p>
+                  {person.note && <p class="text-muted mb-2 text-sm italic">{person.note}</p>}
+                  {person.interests.length > 0 && (
+                    <p class="text-text mb-2 text-sm">{person.interests.join(' · ')}</p>
+                  )}
+                  <div class="flex flex-wrap gap-x-3 gap-y-1 text-sm">
+                    {person.links.email && <a href={`mailto:${person.links.email}`}>Email</a>}
+                    {person.links.website && (
+                      <a href={person.links.website} target="_blank" rel="noopener noreferrer">
+                        Website
+                      </a>
+                    )}
+                    {person.links.scholar && (
+                      <a href={person.links.scholar} target="_blank" rel="noopener noreferrer">
+                        Scholar
+                      </a>
+                    )}
+                    {person.links.github && (
+                      <a href={person.links.github} target="_blank" rel="noopener noreferrer">
+                        GitHub
+                      </a>
+                    )}
+                    {person.links.linkedin && (
+                      <a href={person.links.linkedin} target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ))
+    )
+  }
+</BaseLayout>

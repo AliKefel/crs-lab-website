@@ -30,7 +30,7 @@ const news = (await getCollection('news'))
 
   <section class="border-rule border-t">
     <div class="wrap py-8">
-      <span class="eyebrow">Supported by</span>
+      <span class="eyebrow">Research support from the following funding agencies is gratefully acknowledged:</span>
       <ul class="mt-4 flex flex-wrap items-center gap-x-10 gap-y-5 list-none p-0">
         {
           sponsors.map((sponsor) => (
@@ -45,7 +45,7 @@ const news = (await getCollection('news'))
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
-                  class="h-20 w-auto"
+                  class="h-11 md:h-16 w-auto"
                 />
               </a>
             </li>
