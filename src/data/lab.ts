@@ -15,6 +15,11 @@ export const lab = {
     'NASA',
     'Office of Naval Research',
   ],
+  asuLogo: '/branding/asu.png',
+  labLogo: '/branding/logo-transparent.png',
+  heroImage: '/images/hero.png',
+  heroImageAlt: 'A collaborative robotics workspace in the CRS Lab.',
+  heroImageCaption: 'Cooperative robotic systems research in the CRS Lab.',
 };
 
 export const nav = [

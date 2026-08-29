@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { lab } from '../data/lab';
 import { researchThrusts } from '../data/researchThrusts';
+import { sponsors } from '../data/sponsors';
 import { getCollection } from 'astro:content';
 
 const news = (await getCollection('news'))
@@ -10,14 +11,47 @@ const news = (await getCollection('news'))
 ---
 
 <BaseLayout title={lab.shortName} description={lab.mission}>
-  <section class="wrap py-14 pb-10">
-    <span class="eyebrow">{lab.director}, {lab.directorTitle}</span>
-    <h1>{lab.name}</h1>
-    <p class="text-text max-w-[62ch] text-lg">{lab.mission}</p>
-    <div class="mt-2 flex flex-wrap gap-6">
-      <a href="/research" class="font-sans text-sm font-medium no-underline">Research areas &rarr;</a>
-      <a href="/publications" class="font-sans text-sm font-medium no-underline">Publications &rarr;</a>
-      <a href="/people" class="font-sans text-sm font-medium no-underline">People &rarr;</a>
+  <section class="wrap grid grid-cols-1 items-center gap-8 py-14 pb-10 md:grid-cols-[1.2fr_1fr] md:gap-12">
+    <div>
+      <span class="eyebrow">{lab.director}, {lab.directorTitle}</span>
+      <h1>{lab.name}</h1>
+      <p class="text-text max-w-[62ch] text-lg">{lab.mission}</p>
+      <div class="mt-2 flex flex-wrap gap-6">
+        <a href="/research" class="font-sans text-sm font-medium no-underline">Research areas &rarr;</a>
+        <a href="/publications" class="font-sans text-sm font-medium no-underline">Publications &rarr;</a>
+        <a href="/people" class="font-sans text-sm font-medium no-underline">People &rarr;</a>
+      </div>
+    </div>
+    <figure class="m-0">
+      <img src={lab.heroImage} alt={lab.heroImageAlt} class="aspect-4/3 w-full object-cover" />
+      <figcaption>{lab.heroImageCaption}</figcaption>
+    </figure>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-8">
+      <span class="eyebrow">Supported by</span>
+      <ul class="mt-4 flex flex-wrap items-center gap-x-10 gap-y-5 list-none p-0">
+        {
+          sponsors.map((sponsor) => (
+            <li>
+              <a
+                href={sponsor.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={sponsor.name}
+                class="block"
+              >
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  class="h-20 w-auto"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 
