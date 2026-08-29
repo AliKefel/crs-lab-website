@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { researchThrusts } from '../../data/researchThrusts';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return researchThrusts.map((thrust) => ({
+    params: { thrust: thrust.slug },
+    props: {
+      thrust,
+      projects: projects
+        .filter((p) => p.data.thrust === thrust.slug)
+        .sort((a, b) => a.data.order - b.data.order),
+    },
+  }));
+}
+
+const { thrust, projects } = Astro.props;
+---
+
+<BaseLayout title={thrust.title} description={thrust.description}>
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">Research &middot; {thrust.number}</span>
+    <h1>{thrust.title}</h1>
+    <p class="text-text max-w-[62ch] text-lg">{thrust.description}</p>
+    <a href="/research" class="font-sans text-sm font-medium no-underline">&larr; All research areas</a>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-12">
+      <span class="eyebrow">Projects</span>
+      <h2>Related work</h2>
+      {
+        projects.length === 0 ? (
+          <p class="text-muted">No projects have been published under this thrust yet.</p>
+        ) : (
+          <ul class="mt-6 list-none p-0">
+            {projects.map(async (project) => {
+              const { Content } = await render(project);
+              return (
+                <li class="border-rule-soft border-t py-7 first:border-t-0">
+                  <h3 class="mb-2 flex items-baseline gap-2">
+                    {project.data.title}
+                    {project.data.featured && (
+                      <span class="text-gold text-[11px] font-semibold tracking-[0.1em] uppercase">
+                        Featured
+                      </span>
+                    )}
+                  </h3>
+                  <p class="text-text mb-3">{project.data.summary}</p>
+                  <div class="prose-content text-text">
+                    <Content />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { researchThrusts } from '../../data/researchThrusts';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const countByThrust = (slug: string) => projects.filter((p) => p.data.thrust === slug).length;
+---
+
+<BaseLayout
+  title="Research"
+  description="The CRS Lab's research thrusts: perception and modeling, decision making, learning and adaptation, and communication."
+>
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">Research</span>
+    <h1>Four thrusts, one collaboration problem</h1>
+    <p class="text-text max-w-[62ch] text-lg">
+      Each thrust below addresses a different facet of what it takes for a robot to work well
+      alongside a person: reading their state, deciding how to act around them, adapting to them
+      over time, and communicating with them efficiently.
+    </p>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-4">
+      <ul class="list-none p-0">
+        {
+          researchThrusts.map((thrust) => (
+            <li class="border-rule-soft grid grid-cols-1 gap-3 border-t py-8 first:border-t-0 md:grid-cols-[72px_1fr] md:gap-5">
+              <span class="font-serif text-maroon text-[2.25rem] leading-none">{thrust.number}</span>
+              <div>
+                <h2 class="mb-2">
+                  <a href={`/research/${thrust.slug}`} class="text-ink hover:text-maroon no-underline">
+                    {thrust.title}
+                  </a>
+                </h2>
+                <p class="text-text max-w-[60ch]">{thrust.description}</p>
+                <a
+                  href={`/research/${thrust.slug}`}
+                  class="font-sans text-sm font-medium no-underline"
+                >
+                  {countByThrust(thrust.slug)} project{countByThrust(thrust.slug) === 1 ? '' : 's'} &rarr;
+                </a>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
