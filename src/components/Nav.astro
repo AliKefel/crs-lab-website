@@ -1,0 +1,29 @@
+---
+import { nav } from '../data/lab';
+import MobileNavToggle from './MobileNavToggle';
+
+const path = Astro.url.pathname.replace(/\/index\.html$/, '');
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<nav class="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between" aria-label="Primary">
+  <MobileNavToggle client:visible />
+  <ul
+    id="primary-nav-list"
+    class="border-rule-soft m-0 flex list-none flex-col gap-0.5 border-t p-0 pt-2 md:mt-0 md:flex-row md:gap-7 md:border-0 md:pt-0"
+  >
+    {
+      nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class="text-ink hover:text-maroon aria-[current=page]:text-maroon aria-[current=page]:border-maroon block border-b-2 border-transparent py-2.5 text-[13.5px] font-medium tracking-[0.02em] no-underline md:py-1.5"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

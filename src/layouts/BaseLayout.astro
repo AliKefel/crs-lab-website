@@ -1,0 +1,38 @@
+---
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
+import { lab } from '../data/lab';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = lab.mission } = Astro.props;
+const pageTitle = title === lab.shortName ? title : `${title} — ${lab.shortName}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="view-transition" content="same-origin" />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="bg-maroon text-paper fixed top-0 left-[-9999px] z-100 px-4 py-2.5 text-sm focus:left-3 focus:top-3"
+      >Skip to content</a
+    >
+    <Masthead />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

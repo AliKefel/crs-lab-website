@@ -1,0 +1,152 @@
+@import 'tailwindcss';
+
+@import '@fontsource/source-serif-4/400.css';
+@import '@fontsource/source-serif-4/600.css';
+@import '@fontsource/source-serif-4/400-italic.css';
+@import '@fontsource/inter-tight/400.css';
+@import '@fontsource/inter-tight/500.css';
+@import '@fontsource/inter-tight/600.css';
+
+@theme {
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
+
+  --color-maroon: #7c1b37;
+  --color-maroon-deep: #5e1429;
+  --color-gold: #b08a2e;
+  --color-ink: #16181a;
+  --color-text: #33383d;
+  --color-muted: #6b7176;
+  --color-faint: #8d9296;
+  --color-bg: #fbfaf8;
+  --color-paper: #ffffff;
+  --color-rule: #ddd8d0;
+  --color-rule-soft: #eae6df;
+
+  /* Single responsive breakpoint per the design spec. */
+  --breakpoint-md: 860px;
+
+  --radius-none: 0px;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-maroon);
+    color: var(--color-paper);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-ink font-semibold;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0 0 0.5em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 1.6rem + 2vw, 3rem);
+  }
+  h2 {
+    font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin: 0 0 1.2em;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  a {
+    @apply text-maroon;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    transition: color 0.25s ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    @apply text-maroon-deep;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-maroon);
+    outline-offset: 2px;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  button {
+    font-family: inherit;
+  }
+
+  blockquote {
+    @apply font-serif italic text-ink border-maroon;
+    font-size: 1.25rem;
+    border-left: 2px solid var(--color-maroon);
+    padding-left: 1.25em;
+    margin: 1.5em 0;
+  }
+
+  figure {
+    @apply border border-rule bg-paper;
+    margin: 1.5em 0;
+    padding: 0;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+  }
+
+  figcaption {
+    @apply font-sans italic text-faint border-rule-soft;
+    font-size: 13px;
+    border-top: 1px solid var(--color-rule-soft);
+    padding: 10px 14px;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto max-w-[1080px] px-5 md:px-10;
+  }
+
+  .rule {
+    @apply border-t border-rule;
+    border-width: 1px 0 0;
+  }
+
+  .eyebrow {
+    @apply text-maroon block font-sans text-[11px] font-semibold tracking-[0.14em] uppercase;
+    margin-bottom: 0.6em;
+  }
+
+  .meta {
+    @apply text-faint text-[13px] tracking-[0.02em];
+  }
+}

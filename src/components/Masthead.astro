@@ -1,0 +1,17 @@
+---
+import Nav from './Nav.astro';
+import { lab } from '../data/lab';
+---
+
+<header>
+  <div class="bg-ink text-bg py-1.5 text-[11px] tracking-[0.1em] uppercase">
+    <div class="wrap">{lab.institution} &middot; {lab.department}</div>
+  </div>
+  <div class="wrap border-rule flex flex-col items-stretch gap-3.5 border-b py-5.5 md:flex-row md:items-end md:justify-between md:gap-6 md:py-6">
+    <a href="/" class="flex flex-col gap-0.5 no-underline">
+      <span class="font-serif text-ink text-[1.6rem] font-semibold">{lab.shortName}</span>
+      <span class="text-muted font-sans text-xs">{lab.name}</span>
+    </a>
+    <Nav />
+  </div>
+</header>
