@@ -6,4 +6,4 @@ featured: false
 order: 2
 ---
 
-Most multi-robot task allocation work assumes each robot handles one task at a time. This project relaxes that assumption, developing allocation algorithms for teams of robots that can multitask — interleaving several jobs concurrently — and studying how that changes what an efficient, human-legible allocation looks like.
+Most multi-robot task allocation work assumes each robot handles one task at a time. This project relaxes that assumption, developing allocation algorithms for teams of robots that can multitask (interleaving several jobs concurrently) and studying how that changes what an efficient, human-legible allocation looks like.

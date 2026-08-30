@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title, description = lab.mission } = Astro.props;
-const pageTitle = title === lab.shortName ? title : `${title} — ${lab.shortName}`;
+const pageTitle = title === lab.shortName ? title : `${title} · ${lab.shortName}`;
 ---
 
 <!doctype html>

@@ -6,4 +6,4 @@ featured: true
 order: 1
 ---
 
-Effective human-robot collaboration depends on the robot having some working model of what its human teammate is thinking, intending, and feeling. This project develops model representations of human behavioral and mental state that remain robust when trained on limited, noisy, or incomplete data — the norm rather than the exception in real deployment settings — rather than relying on large curated datasets and conventional computer vision alone.
+Effective human-robot collaboration depends on the robot having some working model of what its human teammate is thinking, intending, and feeling. This project develops model representations of human behavioral and mental state that remain robust when trained on limited, noisy, or incomplete data (the norm rather than the exception in real deployment settings), rather than relying on large curated datasets and conventional computer vision alone.

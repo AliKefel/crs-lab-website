@@ -6,7 +6,7 @@ export interface Sponsor {
 
 // Funding agencies acknowledged on the lab's previous site. Add a fifth
 // entry here (with a matching logo file in public/sponsors/) if there's
-// another sponsor to credit — the strip on the homepage renders whatever
+// another sponsor to credit; the strip on the homepage renders whatever
 // is in this list.
 export const sponsors: Sponsor[] = [
   {name: 'Arizona State University', logo: '/branding/asu.png', href: 'https://www.asu.edu/'},

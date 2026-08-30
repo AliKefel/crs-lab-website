@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.summary}>
+  <article class="wrap py-14 pb-16">
+    <a href="/news" class="font-sans text-sm font-medium no-underline">&larr; All news</a>
+    <p class="meta mt-6 mb-2">{formattedDate}</p>
+    <h1>{post.data.title}</h1>
+    {post.data.image && (
+      <figure class="my-8">
+        <img src={post.data.image} alt={post.data.title} class="w-full object-cover" />
+      </figure>
+    )}
+    <div class="prose-content text-text max-w-[68ch] text-[17px] leading-[1.7]">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

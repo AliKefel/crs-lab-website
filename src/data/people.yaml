@@ -2,7 +2,7 @@
 #
 # Each entry supports: name, role, note (optional, e.g. current position),
 # interests (list), photo (path under public/), and links (email, website,
-# scholar, github, linkedin — all optional). See the README for the full
+# scholar, github, linkedin, all optional). See the README for the full
 # field reference.
 faculty:
   - name: 'Yu "Tony" Zhang'

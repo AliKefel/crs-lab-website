@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="News" description="News and updates from the CRS Lab.">
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">News</span>
+    <h1>Lab news</h1>
+    <p class="text-text max-w-[62ch] text-lg">Papers, awards, and milestones from the lab.</p>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-12">
+      <ul class="list-none p-0">
+        {
+          posts.map((post) => (
+            <li class="border-rule-soft grid grid-cols-1 gap-2 border-t py-7 first:border-t-0 md:grid-cols-[140px_1fr] md:gap-8">
+              <p class="meta m-0">
+                {post.data.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
+              <div>
+                <h2 class="mb-1.5 text-[1.15rem]">
+                  <a href={`/news/${post.slug}`} class="text-ink hover:text-maroon no-underline">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-text m-0">{post.data.summary}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      {posts.length === 0 && <p class="text-muted">No news posts yet.</p>}
+    </div>
+  </section>
+</BaseLayout>
