@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationList from '../components/PublicationList';
+import { publications } from '../lib/publications';
+---
+
+<BaseLayout
+  title="Publications"
+  description="Publications from the CRS Lab, parsed from our BibTeX source and grouped by year."
+>
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">Publications</span>
+    <h1>Publications</h1>
+    <p class="text-text max-w-[62ch] text-lg">
+      Lab authors are bolded below.
+    </p>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-12">
+      <PublicationList publications={publications} client:visible />
+    </div>
+  </section>
+</BaseLayout>
