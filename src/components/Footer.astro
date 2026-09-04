@@ -4,21 +4,16 @@ import { lab } from '../data/lab';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-rule mt-16 border-t py-8 pb-6">
-  <div class="wrap mb-4.5 flex flex-wrap justify-between gap-6">
-    <div>
-      <p class="font-serif text-ink mb-1 text-[15px]">{lab.name}</p>
-      <p class="meta">{lab.department}, {lab.institution}</p>
-      <p class="meta">{lab.address}</p>
+<footer class="border-rule mt-16 border-t py-8">
+  <div class="wrap flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+    <div class="space-y-0.5">
+      <p class="font-serif text-ink m-0 text-[15px]">{lab.name}</p>
+      <p class="meta m-0">{lab.department}, {lab.institution}</p>
+      <p class="meta m-0">{lab.address}</p>
     </div>
-    <div>
-      <p class="meta">
-        <a href={`mailto:${lab.email}`}>{lab.email}</a>
-      </p>
-      <p class="meta">Supported by {lab.funders.join(', ')}</p>
-    </div>
+    <p class="meta m-0 max-w-[42ch] md:text-right">Supported by {lab.funders.join(', ')}</p>
   </div>
-  <div class="wrap">
-    <p class="meta border-rule-soft border-t pt-4">&copy; {year} {lab.shortName}, {lab.institution}.</p>
+  <div class="wrap border-rule-soft mt-6 border-t pt-4">
+    <p class="meta m-0">&copy; {year} {lab.shortName}, {lab.institution}.</p>
   </div>
 </footer>
