@@ -1,9 +1,51 @@
+%% Journal papers
+
 @article{vora2026reward,
   title = {Provably Efficient Reward Transfer in Reinforcement Learning with Discrete Markov Decision Processes},
   author = {Vora, Kevin Jatin and Zhang, Yu},
   journal = {Transactions on Machine Learning Research},
-  year = {2026}
+  year = {2026},
+  pdf = {https://arxiv.org/pdf/2503.13414},
+  abstract = {In this paper, we propose a new solution to reward adaptation (RA) in reinforcement learning, where the agent adapts to a target reward function based on one or more existing source behaviors learned a priori under the same domain dynamics but different reward functions. While learning the target behavior from scratch is possible, it is often inefficient given the available source behaviors. Our work introduces a new approach to RA through the manipulation of Q-functions. Assuming the target reward function is a known function of the source reward functions, we compute bounds on the Q-function and present an iterative process (akin to value iteration) to tighten these bounds. Such bounds enable action pruning in the target domain before learning even starts. We refer to this method as "Q-Manipulation" (Q-M). The iteration process assumes access to a lite-model, which is easy to provide or learn. We formally prove that Q-M, under discrete domains, does not affect the optimality of the returned policy and show that it is provably efficient in terms of sample complexity in a probabilistic sense. Q-M is evaluated in a variety of synthetic and simulation domains to demonstrate its effectiveness, generalizability, and practicality.}
 }
+
+@article{sharma2022domain,
+  title = {Domain Concretization From Examples: Addressing Missing Domain Knowledge Via Robust Planning},
+  author = {Sharma, Akshay and Medikeri, P. and Zhang, Yu},
+  journal = {IEEE Robotics and Automation Letters},
+  year = {2022},
+  pdf = {https://arxiv.org/abs/2011.09034},
+  abstract = {The assumption of complete domain knowledge is not warranted for robot planning and decision-making in the real world. It could be due to design flaws or arise from domain ramifications or qualifications. In such cases, existing planning and learning algorithms could produce highly undesirable behaviors. This problem is more challenging than partial observability in the sense that the agent is unaware of certain knowledge, in contrast to it being partially observable: the difference between known unknowns and unknown unknowns. In this work, we formulate it as the problem of Domain Concretization, an inverse problem to domain abstraction. Based on an incomplete domain model provided by the designer and teacher traces from human users, our algorithm searches for a candidate model set under a minimalistic model assumption. It then generates a robust plan with the maximum probability of success under the set of candidate models. In addition to a standard search formulation in the model-space, we propose a sample-based search method and also an online version of it to improve search time. We tested our approach on IPC domains and a simulated robotics domain where incompleteness was introduced by removing domain features from the complete model. Results show that our planning algorithm increases the plan success rate without impacting the cost much.}
+}
+
+@article{zhang2013iqasymtre,
+  title = {IQ-ASyMTRe: Forming Executable Coalitions for Tightly Coupled Multirobot Tasks},
+  author = {Zhang, Yu and Parker, L. E.},
+  journal = {IEEE Transactions on Robotics, 29(2): 400-416},
+  year = {2013},
+  pdf = {http://web.eecs.utk.edu/~parker/publications/TRO-13.pdf},
+  abstract = {While most previous research on forming coalitions concentrates mainly on loosely coupled multirobot tasks, a more challenging problem is to address tightly coupled multirobot tasks that involve close robot coordination, which often requires capability sharing. General methods for autonomous capability sharing have been shown to greatly improve the flexibility of distributed systems. However, in addition to the interaction constraints between the robots and the environment required by the tasks, these methods may introduce additional interaction constraints between robots based on how the capabilities are shared. The satisfiability of these constraints in the current situation determines the feasibility of potential coalitions. To achieve system autonomy, the ability to identify potential coalitions that are feasible for task execution is critical. We introduce a general approach that incorporates this capability, extending the ASyMTRe architecture into IQ-ASyMTRe, which is able to find coalitions in which these required constraints are satisfied. When used to form coalitions, IQ-ASyMTRe sets up only feasible coalitions, enabling tasks to be executed autonomously. We have formally proven that IQ-ASyMTRe is sound and complete for forming executable coalitions.}
+}
+
+@article{zhang2013considering,
+  title = {Considering Inter-Task Resource Constraints in Task Allocation},
+  author = {Zhang, Yu and Parker, L. E.},
+  journal = {Journal of Autonomous Agents and Multi-Agent Systems, vol. 26, pp. 389-419},
+  year = {2013},
+  abstract = {Task allocation with single-task robots, multi-robot tasks, and instantaneous assignment has been shown to be strongly NP-hard. Although this problem has been studied extensively, few efficient approximation algorithms have been provided given its inherent complexity. We provide discussion and analysis of two natural greedy heuristics for solving this problem, then introduce a new greedy heuristic that considers inter-task resource constraints to approximate the influence between different assignments. Instead of only looking at the utility of an assignment, our approach computes the expected loss of utility, due to the assigned robots and task, as an offset, and uses the offset utility for making the greedy choice. A formal analysis of the new heuristic shows that solution quality is bounded by two different factors, and we provide a new algorithm to approximate the heuristic for improved performance.}
+}
+
+%% Dissertation
+
+@phdthesis{zhang2012dissertation,
+  title = {Coalition Formation and Execution in Multi-robot Tasks},
+  author = {Zhang, Yu},
+  school = {Doctoral Dissertation, University of Tennessee, Knoxville},
+  year = {2012},
+  pdf = {http://trace.tennessee.edu/utk_graddiss/1442/}
+}
+
+%% Conference papers
 
 @inproceedings{shaheen2026reward,
   title = {Empirical Evidence and Analysis of a Critical Pitfall in Reward Learning from Human Feedback},
@@ -54,17 +96,17 @@
   year = {2023}
 }
 
+@inproceedings{zhang2023aamas,
+  title = {From Abstractions to Grounded Languages for Robust Coordination of Task Planning Robots},
+  author = {Zhang, Yu},
+  booktitle = {International Conference on Autonomous Agents and Multiagent Systems (AAMAS), Extended Abstract},
+  year = {2023}
+}
+
 @inproceedings{gong2022explicable,
   title = {Explicable Policy Search},
   author = {Gong, Ze and Zhang, Yu},
   booktitle = {Conference on Neural Information Processing Systems (NeurIPS)},
-  year = {2022}
-}
-
-@article{sharma2022domain,
-  title = {Domain Concretization From Examples: Addressing Missing Domain Knowledge Via Robust Planning},
-  author = {Sharma, Akshay and Medikeri, P. and Zhang, Yu},
-  journal = {IEEE Robotics and Automation Letters},
   year = {2022}
 }
 
@@ -89,11 +131,28 @@
   year = {2021}
 }
 
+@inproceedings{hanni2021active,
+  title = {Active Explicable Planning for Human-Robot Teaming},
+  author = {Hanni, Akkamahadevi and Zhang, Yu},
+  booktitle = {ACM International Conference on Human Robot Interaction (HRI), LBR},
+  year = {2021}
+}
+
+@inproceedings{boateng2021virtual,
+  title = {Virtual Shadow Rendering for Maintaining Situation Awareness in Proximal Human-Robot Teaming},
+  author = {Boateng, Andrew and Zhang, Yu},
+  booktitle = {ACM International Conference on Human Robot Interaction (HRI), LBR, also in the VAM-HRI workshop},
+  year = {2021},
+  pdf = {https://openreview.net/pdf?id=nzc9nFcGo_I}
+}
+
 @inproceedings{zakershahrak2020online,
   title = {Online Explanation Generation for Human-Robot Teaming},
   author = {Zaker Shahrak, Mehrdad and Gong, Ze and Sadassivam, Nikhillesh and Zhang, Yu},
   booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year = {2020}
+  year = {2020},
+  pdf = {https://arxiv.org/pdf/1903.06418.pdf},
+  abstract = {As AI becomes an integral part of our lives, the development of explainable AI, embodied in the decision-making process of an AI or robotic agent, becomes imperative. For a robotic teammate, the ability to generate explanations to justify its behavior is one of the key requirements of explainable agency. Prior work on explanation generation has been focused on supporting the rationale behind the robot's decision or behavior. These approaches, however, fail to consider the mental demand for understanding the received explanation. In other words, the human teammate is expected to understand an explanation no matter how much information is presented. In this work, we argue that explanations, especially those of a complex nature, should be made in an online fashion during the execution, which helps spread out the information to be explained and thus reduce the mental workload of humans in highly cognitive demanding tasks. However, a challenge here is that the different parts of an explanation may be dependent on each other, which must be taken into account when generating online explanations. To this end, a general formulation of online explanation generation is presented with three variations satisfying different "online" properties. The new explanation generation methods are based on a model reconciliation setting introduced in our prior work. We evaluated our methods both with human subjects in a simulated rover domain, using NASA Task Load Index (TLX), and synthetically with ten different problems across two standard IPC domains. Results strongly suggest that our methods generate explanations that are perceived as less cognitively demanding and much preferred over the baselines and are computationally efficient.}
 }
 
 @inproceedings{gong2020what,
@@ -101,4 +160,269 @@
   author = {Gong, Ze and Zhang, Yu},
   booktitle = {AAAI Conference on Artificial Intelligence (AAAI)},
   year = {2020}
+}
+
+@inproceedings{kulkarni2019explicability,
+  title = {Explicability as Minimizing Distance from Expected Behavior},
+  author = {Kulkarni, Anagha and Zha, Y. and Chakraborti, Tathagata and Vadlamudi, S. and Zhang, Yu and Kambhampati, Subbarao},
+  booktitle = {International Conference on Autonomous Agents and Multiagent Systems (AAMAS), Extended Abstract},
+  year = {2019},
+  pdf = {https://arxiv.org/abs/1611.05497},
+  abstract = {In order to have effective human-AI collaboration, it is necessary to address how the AI agent's behavior is being perceived by the humans-in-the-loop. When the agent's task plans are generated without such considerations, they may often demonstrate inexplicable behavior from the human's point of view. This problem may arise due to the human's partial or inaccurate understanding of the agent's planning model. This may have serious implications from increased cognitive load to more serious concerns of safety around a physical agent. In this paper, we address this issue by modeling plan explicability as a function of the distance between a plan that agent makes and the plan that human expects it to make. We learn a regression model for mapping the plan distances to explicability scores of plans and develop an anytime search algorithm that can use this model as a heuristic to come up with progressively explicable plans. We evaluate the effectiveness of our approach in a simulated autonomous car domain and a physical robot domain.}
+}
+
+@inproceedings{zakershahrak2018interactiveroman,
+  title = {Interactive Plan Explicability in Human-Robot Teaming},
+  author = {Zaker Shahrak, Mehrdad and Sonawane, A. and Gong, Ze and Zhang, Yu},
+  booktitle = {IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)},
+  year = {2018}
+}
+
+@inproceedings{gong2018behavior,
+  title = {Behavior Explanation as Intention Signaling in Human-Robot Teaming},
+  author = {Gong, Ze and Zhang, Yu},
+  booktitle = {IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)},
+  year = {2018}
+}
+
+@inproceedings{gong2018temporal,
+  title = {Temporal Spatial Inverse Semantics for Robots Communicating with Humans},
+  author = {Gong, Ze and Zhang, Yu},
+  booktitle = {International Conference on Robotics and Automation (ICRA)},
+  year = {2018},
+  award = {Finalist for the Best Paper Award in Cognitive Robotics}
+}
+
+@inproceedings{chakraborti2017plan,
+  title = {Plan Explanations as Model Reconciliation: Moving Beyond Explanation as Soliloquy},
+  author = {Chakraborti, Tathagata and Sreedharan, Sarath and Zhang, Yu and Kambhampati, Subbarao},
+  booktitle = {International Joint Conference on Artificial Intelligence (IJCAI)},
+  year = {2017},
+  pdf = {https://arxiv.org/pdf/1701.08317.pdf},
+  abstract = {When AI systems interact with humans in the loop, they are often called on to provide explanations for their plans and behavior. Past work on plan explanations primarily involved the AI system explaining the correctness of its plan and the rationale for its decision in terms of its own model. Such soliloquy is wholly inadequate in most realistic scenarios where the humans have domain and task models that differ significantly from that used by the AI system. We posit that the explanations are best studied in light of these differing models. In particular, we show how explanation can be seen as a "model reconciliation problem" (MRP), where the AI system in effect suggests changes to the human's model, so as to make its plan be optimal with respect to that changed human model. We will study the properties of such explanations, present algorithms for automatically computing them, and evaluate the performance of the algorithms.}
+}
+
+@inproceedings{zhang2017plan,
+  title = {Plan Explicability and Predictability for Robot Task Planning},
+  author = {Zhang, Yu and Sreedharan, Sarath and Kulkarni, Anagha and Chakraborti, Tathagata and Zhuo, Hankz Hankui and Kambhampati, Subbarao},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2017}
+}
+
+@inproceedings{han2017simultaneous,
+  title = {Simultaneous Feature and Body-Part Learning for Real-Time Robot Awareness of Human Behaviors},
+  author = {Han, F. and Yang, X. and Reardon, C. and Zhang, Yu and Zhang, H.},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2017}
+}
+
+@inproceedings{han2017sequence,
+  title = {Sequence-based Multimodal Apprenticeship Learning For Robot Perception and Decision Making},
+  author = {Han, F. and Yang, X. and Zhang, Yu and Zhang, H.},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2017}
+}
+
+@inproceedings{zhang2016formal,
+  title = {A Formal Analysis of Required Cooperation in Multi-agent Planning},
+  author = {Zhang, Yu and Sreedharan, Sarath and Kambhampati, Subbarao},
+  booktitle = {International Conference on Automated Planning and Scheduling (ICAPS)},
+  year = {2016},
+  pdf = {http://rakaposhi.eas.asu.edu/yu-zhang-icaps16.pdf},
+  abstract = {It is well understood that, through cooperation, multiple agents can achieve tasks that are unachievable by a single agent. However, there had been no formal characterization of situations where cooperation is required to achieve a goal, thus warranting the use of multiple agents. We provide such a formal characterization for multi-agent planning problems with sequential action execution. We first show that determining whether there is required cooperation is, in general, intractable even in this limited setting, so we start our analysis with a subset of more restrictive problems where agents are homogeneous. For such problems, we identify two conditions that can cause required cooperation: when neither holds, the problem is single-agent solvable, and otherwise we provide upper bounds on the minimum number of agents required. For the remaining problems with heterogeneous agents, we further divide them into two subsets, and for one of these we propose the concept of a transformer agent to reduce the number of agents that need to be considered, which is used to improve planning performance.}
+}
+
+@inproceedings{chakraborti2016planning,
+  title = {Planning with Resource Conflicts in Human-Robot Cohabitation},
+  author = {Chakraborti, Tathagata and Zhang, Yu and Kambhampati, Subbarao},
+  booktitle = {International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},
+  year = {2016},
+  pdf = {http://rakaposhi.eas.asu.edu/aamas16-tathagata.pdf}
+}
+
+@inproceedings{zhang2015human,
+  title = {A Human Factors Analysis of Proactive Support in Human-robot Teaming},
+  author = {Zhang, Yu and Narayanan, Vignesh and Chakraborti, Tathagata and Kambhampati, Subbarao},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year = {2015},
+  pdf = {http://rakaposhi.eas.asu.edu/human-factors-IROS2015.pdf},
+  abstract = {It has long been assumed that for effective human-robot teaming, it is desirable for assistive robots to infer the goals and intents of humans and take proactive actions to help them achieve those goals. However, there had not been a systematic evaluation of the accuracy of this claim. On the face of it, there are several ways a proactive robot assistant can in fact reduce the effectiveness of teaming: it can increase the cognitive load of the human teammate by performing actions that are unanticipated, and misinterpretations or delays in goal and intent recognition due to partial observations and limited communication can also reduce performance. In this project, we perform an analysis of human factors on the effectiveness of proactive support in human-robot teaming, evaluated in a simulated urban search and rescue task in which the efficacy of teaming depends not only on individual performance but also on how teammates interact with each other. In this task, the human teammate remotely controls a robot while working with an intelligent robot teammate.}
+}
+
+@inproceedings{chakraborti2015serendipity,
+  title = {Planning for Serendipity},
+  author = {Chakraborti, Tathagata and Briggs, G. and Talamadupula, Kartik and Zhang, Yu and Scheutz, M. and Smith, D. and Kambhampati, Subbarao},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year = {2015},
+  pdf = {http://rakaposhi.eas.asu.edu/serendipity-IROS2015.pdf},
+  abstract = {There has been a lot of focus on human-robot cohabitation issues that are often orthogonal to many aspects of human-robot teaming, such as producing socially acceptable robot behaviors and de-conflicting plans of robots and humans in shared environments. An interesting offshoot of these settings that has largely been overlooked is the problem of planning for serendipity: planning for stigmergic collaboration without explicit commitments between agents in cohabitation. In this project, we formalize this notion of planning for serendipity for the first time and provide an integer-programming-based solution. We illustrate the different modes of this planning technique on a typical urban search and rescue scenario, and show a real-life implementation of the ideas on a Nao robot interacting with a human colleague.}
+}
+
+@inproceedings{kim2015discof,
+  title = {DisCoF+: Asynchronous DisCoF with Flexible Decoupling for Cooperative Pathfinding in Distributed Systems},
+  author = {Kim, K. and Campbell, J. and Duong, W. and Zhang, Yu and Fainekos, G.},
+  booktitle = {IEEE International Conference on Automation Science and Engineering (CASE)},
+  year = {2015},
+  pdf = {http://arxiv.org/pdf/1506.03540.pdf},
+  abstract = {In our prior work, we outlined an approach, named DisCoF, for cooperative pathfinding in distributed systems with limited sensing and communication range. Contrasting to prior works on cooperative pathfinding with completeness guarantees, which often assume the access to global information, DisCoF does not make this assumption. The implication is that at any given time in DisCoF, the robots may not all be aware of each other, which is often the case in distributed systems. As a result, DisCoF represents an inherently online approach since coordination can only be realized in an opportunistic manner between robots that are within each other's sensing and communication range. However, there are a few assumptions made in DisCoF to facilitate a formal analysis, which must be removed to work with distributed multi-robot platforms. In this paper, we present DisCoF+, which extends DisCoF by enabling an asynchronous solution, as well as providing flexible decoupling between robots for performance improvement. We also extend the formal results of DisCoF to DisCoF+. Furthermore, we evaluate our implementation of DisCoF+ and demonstrate a simulation of it running in a distributed multi-robot environment. Finally, we compare DisCoF+ with DisCoF in terms of plan quality and planning performance.}
+}
+
+@inproceedings{zhang2015capability,
+  title = {Capability Models and Their Applications in Planning},
+  author = {Zhang, Yu and Sreedharan, Sarath and Kambhampati, Subbarao},
+  booktitle = {International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},
+  year = {2015},
+  abstract = {One important challenge for a set of agents to achieve more efficient collaboration is for these agents to maintain proper models of each other. An important aspect of these models is that they are often not provided, and hence must be learned from plan execution traces. As a result, these models of other agents are inherently partial and incomplete. Most existing agent models are based on action modeling and do not naturally allow for incompleteness. We introduce a modeling approach based on the representation of capabilities, which has several unique advantages. First, we show that the structures of capability models can be learned or easily specified, and both model structure and parameter learning are robust to high degrees of incompleteness in plan traces (for example, with only start and end states partially observed). Furthermore, parameter learning can be performed efficiently online via Bayesian learning. As a result, capability models are useful in applications where traditional models are difficult to obtain, or where models must be learned from incomplete plan traces, such as robots learning human models from observations and interactions.}
+}
+
+@inproceedings{zhang2014discof,
+  title = {DisCoF: Cooperative Pathfinding in Distributed Systems with Limited Sensing and Communication Range},
+  author = {Zhang, Yu and Kim, K. and Fainekos, G.},
+  booktitle = {International Symposium on Distributed Autonomous Robotic Systems (DARS)},
+  year = {2014},
+  pdf = {http://www.public.asu.edu/~yzhan442/DARS2014.pdf},
+  abstract = {This project addresses the multi-agent pathfinding problem in distributed systems that are subject to limited sensing and communication range. Cooperative pathfinding is typically addressed in one of two ways in the literature: fully coupled approaches consider all robots together and construct plans simultaneously, while decoupled approaches construct plans for only a subset of robots at a time. Decoupled approaches can be much faster, but are often suboptimal and incomplete, and the few decoupled approaches that do achieve completeness typically assume access to global information, which may not be available in distributed robotic systems. We provide a window-based approach to cooperative pathfinding with limited sensing and communication range, called DisCoF. Robots are assumed to be fully decoupled initially, and may gradually increase their level of coupling online and in a distributed fashion; in cases where global information is needed to solve a problem instance, DisCoF eventually couples all robots together. A completeness analysis of DisCoF is provided.}
+}
+
+@inproceedings{zhang2014coalition,
+  title = {Coalition Coordination for Tightly Coupled Multirobot Tasks with Sensor Constraints},
+  author = {Zhang, Yu and Parker, L. E. and Kambhampati, Subbarao},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2014},
+  pdf = {http://rakaposhi.eas.asu.edu/ICRA14-yu-zhang.pdf},
+  abstract = {We propose a coordination mechanism to address coalition execution in tightly coupled multirobot tasks. It provides a flexible method to reason about synergies with overlapping coalitions, thus enabling multitasking robots in multi-robot tasks, which not only improves efficiency but also reduces resource requirements during task execution. This means the mechanism enables tasks that could not be easily handled before, especially when critical resources are rare but commonly required. This coordination mechanism is based on the concept of sensor constraint, introduced by information sharing between robots. We have proven that this mechanism is sound and complete in finding a coordination solution given a few assumptions.}
+}
+
+@inproceedings{zhang2013scheduling,
+  title = {Multi-Robot Task Scheduling},
+  author = {Zhang, Yu and Parker, L. E.},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2013},
+  pdf = {http://web.eecs.utk.edu/~parker/publications/ICRA_13.pdf}
+}
+
+@inproceedings{zhang2012task,
+  title = {Task Allocation with Executable Coalitions in Multirobot Tasks},
+  author = {Zhang, Yu and Parker, L. E.},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2012},
+  pdf = {http://web.eecs.utk.edu/~parker/publications/ICRA_12.pdf}
+}
+
+@inproceedings{zhang2011solution,
+  title = {Solution Space Reasoning to Improve IQ-ASyMTRe in Tightly-Coupled Multirobot Tasks},
+  author = {Zhang, Yu and Parker, L. E.},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2011},
+  pdf = {http://web.eecs.utk.edu/~parker/publications/ICRA_11.pdf},
+  abstract = {In FLOW, when an information flow is interrupted, or when flow quality no longer satisfies the task's requirements, the task robot can initiate a flow relaxation process for the affected coalition. Since this process can update the set of sensor constraints, the coordination solution also needs to be recreated. This only needs to be performed on the initiating coalition and any coalitions set up after it in the previous coordination process, unless a new coordination solution cannot be found with these coalitions after relaxation. This paper improves on that process by reasoning about the solution space, providing a more robust and flexible flow relaxation process.}
+}
+
+@inproceedings{zhang2010iqasymtre,
+  title = {IQ-ASyMTRe: Synthesizing Coalition Formation and Execution for Tightly-Coupled Multirobot Tasks},
+  author = {Zhang, Yu and Parker, L. E.},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year = {2010},
+  pdf = {http://www.cs.utk.edu/~parker/publications/IROS_10-Zhang.pdf},
+  abstract = {In IQ-ASyMTRe, robot capabilities are built as schemas based on schema theory, where each schema represents a motor, sensory, computational, or communication capability of the agent. Given a task, we must determine how to connect the different schemas of different robots to satisfy the task's requirements. To create the solution space of potential connection solutions for a task, the reasoning algorithm first checks all components that can output the required information instances for the task, then checks recursively for the inputs of those components until each path either ends in a source component or in a conflict with the referent instantiation constraint. In a second phase, the robots temporarily activate their capabilities to dynamically instantiate the information flows from sources to sinks.}
+}
+
+@inproceedings{zhang2010information,
+  title = {A General Information Quality Based Approach for Satisfying Sensor Constraints in Multirobot Tasks},
+  author = {Zhang, Yu and Parker, L. E.},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year = {2010},
+  pdf = {http://www.cs.utk.edu/~parker/publications/icra10.pdf},
+  abstract = {As coalitions are formed in FLOW, sensor constraints among robots are also established. How to keep these constraints satisfied throughout execution, from initial configuration to task completion, remains an open issue, and environmental factors, both static and dynamic, can influence whether the constraints continue to hold. This paper proposes a general method to address these issues across applications with different sensors. The method combines sensor models, environment sampling, and a measure of information quality with a sampled motion model. Local information-quality measures are then combined systematically to compute an overall flow quality.}
+}
+
+%% Workshop papers
+
+@inproceedings{gong2021explicable,
+  title = {Explicable Policy Search via Preference-Based Learning under Human Biases},
+  author = {Gong, Ze and Zhang, Yu},
+  booktitle = {ICML Workshop on Human in the Loop Learning},
+  year = {2021},
+  venue_type = {workshop}
+}
+
+@inproceedings{zakershahrak2019online,
+  title = {Online Explanation Generation for Human-Robot Teaming},
+  author = {Zaker Shahrak, Mehrdad and Gong, Ze and Sadassivam, Nikhillesh and Hanni, Akkamahadevi and Zhang, Yu},
+  booktitle = {ICAPS Workshop on Explainable AI Planning},
+  year = {2019},
+  venue_type = {workshop},
+  pdf = {https://arxiv.org/abs/1903.06418},
+  abstract = {As AI becomes an integral part of our lives, the development of explainable AI, embodied in the decision-making process of an AI or robotic agent, becomes imperative. For a robotic teammate, the ability to generate explanations to justify its behavior is one of the key requirements of explainable agency. Prior work on explanation generation has been focused on supporting the rationale behind the robot's decision or behavior. These approaches, however, fail to consider the mental demand for understanding the received explanation. In this work, we argue that explanations, especially those of a complex nature, should be made in an online fashion during the execution, which helps spread out the information to be explained and thus reduce the mental workload of humans in highly cognitive demanding tasks. To this end, a general formulation of online explanation generation is presented with three variations satisfying different "online" properties, based on a model reconciliation setting introduced in our prior work.}
+}
+
+@inproceedings{chen2018explain,
+  title = {Explain by Goal Augmentation: Explanation Generation as Inverse Planning},
+  author = {Chen, Z. and Zhang, Yu},
+  booktitle = {RSS Workshop on Adversarial Robotics},
+  year = {2018},
+  venue_type = {workshop}
+}
+
+@inproceedings{zakershahrak2018interactiverss,
+  title = {Interactive Plan Explicability in Human-Robot Teaming},
+  author = {Zaker Shahrak, Mehrdad and Zhang, Yu},
+  booktitle = {RSS Workshop on Towards a Framework for Joint Action},
+  year = {2018},
+  venue_type = {workshop}
+}
+
+@inproceedings{kulkarni2018explicability,
+  title = {Explicability as Minimizing Distance from Expected Behavior},
+  author = {Kulkarni, Anagha and Zha, Y. and Chakraborti, Tathagata and Vadlamudi, S. and Zhang, Yu and Kambhampati, Subbarao},
+  booktitle = {ICAPS Workshop on Explainable AI Planning},
+  year = {2018},
+  venue_type = {workshop},
+  pdf = {https://arxiv.org/abs/1611.05497},
+  abstract = {In order to have effective human-AI collaboration, it is necessary to address how the AI agent's behavior is being perceived by the humans-in-the-loop. When the agent's task plans are generated without such considerations, they may often demonstrate inexplicable behavior from the human's point of view. In this paper, we address this issue by modeling plan explicability as a function of the distance between a plan that agent makes and the plan that human expects it to make. We learn a regression model for mapping the plan distances to explicability scores of plans and develop an anytime search algorithm that can use this model as a heuristic to come up with progressively explicable plans. We evaluate the effectiveness of our approach in a simulated autonomous car domain and a physical robot domain.}
+}
+
+@inproceedings{gong2018robot,
+  title = {Robot Signaling its Intentions in Human-Robot Teaming},
+  author = {Gong, Ze and Zhang, Yu},
+  booktitle = {HRI Workshop on Explainable Robotic Systems},
+  year = {2018},
+  venue_type = {workshop}
+}
+
+@inproceedings{zhang2016planexplicability,
+  title = {Plan Explicability for Robot Task Planning},
+  author = {Zhang, Yu and Sreedharan, Sarath and Kulkarni, Anagha and Chakraborti, Tathagata and Zhuo, Hankz Hankui and Kambhampati, Subbarao},
+  booktitle = {RSS Workshop on Planning for Human-Robot Interaction},
+  year = {2016},
+  venue_type = {workshop},
+  pdf = {http://rakaposhi.eas.asu.edu/rss16-wkshp.pdf}
+}
+
+@inproceedings{chakraborti2016formal,
+  title = {A Formal Framework for Studying Interaction in Human-Robot Societies},
+  author = {Chakraborti, Tathagata and Talamadupula, Kartik and Zhang, Yu and Kambhampati, Subbarao},
+  booktitle = {AAAI Workshop on Symbiotic Cognitive Systems},
+  year = {2016},
+  venue_type = {workshop},
+  pdf = {http://rakaposhi.eas.asu.edu/tathagata-aaai16-symbiotic.pdf}
+}
+
+@inproceedings{narayanan2015automated,
+  title = {Automated Planning for Peer-to-peer Teaming and its Evaluation in Remote Human-Robot Interaction},
+  author = {Narayanan, Vignesh and Zhang, Yu and Mendoza, N. and Kambhampati, Subbarao},
+  booktitle = {ACM/IEEE International Conference on Human Robot Interaction (HRI), Extended Abstract},
+  year = {2015},
+  venue_type = {workshop},
+  pdf = {http://rakaposhi.eas.asu.edu/hri-2015.pdf}
+}
+
+@inproceedings{zhang2014formaldmap,
+  title = {A Formal Analysis of Required Cooperation in Multi-agent Planning},
+  author = {Zhang, Yu and Kambhampati, Subbarao},
+  booktitle = {DMAP Workshop of the International Conference on Planning and Scheduling (ICAPS)},
+  year = {2014},
+  venue_type = {workshop},
+  pdf = {http://arxiv.org/abs/1404.5643},
+  abstract = {Research on multi-agent planning has been popular in recent years. While previous research has been motivated by the understanding that, through cooperation, multi-agent systems can achieve tasks that are unachievable by single-agent systems, there are no formal characterizations of situations where cooperation is required to achieve a goal, thus warranting the application of multi-agent systems. In this paper, we provide such a formal discussion from the planning aspect. We first show that determining whether there is required cooperation (RC) is intractable in general. Then, by dividing the problems that require cooperation into two classes, problems with heterogeneous and homogeneous agents, we aim to identify all the conditions that can cause RC in these two classes. We establish that when none of these identified conditions hold, the problem is single-agent solvable. Furthermore, with a few assumptions, we provide an upper bound on the minimum number of agents required for RC problems with homogeneous agents.}
 }

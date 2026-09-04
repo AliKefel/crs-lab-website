@@ -26,7 +26,7 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
     <h1>{post.data.title}</h1>
     {post.data.image && (
       <figure class="my-8">
-        <img src={post.data.image} alt={post.data.title} class="w-full object-cover" />
+        <img src={post.data.image} alt={post.data.title} class="w-full h-auto" />
       </figure>
     )}
     <div class="prose-content text-text max-w-[68ch] text-[17px] leading-[1.7]">

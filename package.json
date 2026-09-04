@@ -15,8 +15,6 @@
     "@astrojs/preact": "^4.0.4",
     "@citation-js/core": "^0.7.14",
     "@citation-js/plugin-bibtex": "^0.7.14",
-    "@fontsource/inter-tight": "^5.1.0",
-    "@fontsource/source-serif-4": "^5.1.0",
     "astro": "^5.1.1",
     "js-yaml": "^4.1.0",
     "preact": "^10.25.3",

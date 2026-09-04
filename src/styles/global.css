@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
-/* Neue Haas Grotesk Display: headings, eyebrow numerals, pull quotes.
-   Optically cut for larger sizes. */
+
 @font-face {
   font-family: 'Neue Haas Grotesk Display';
   src: url('/fonts/NeueHaasGrotDisp-55Roman-Trial.otf') format('opentype');
@@ -31,8 +30,6 @@
   font-display: swap;
 }
 
-/* Neue Haas Grotesk Text: body copy, navigation, labels, UI.
-   Optically cut for smaller sizes. */
 @font-face {
   font-family: 'Neue Haas Grotesk Text';
   src: url('/fonts/NeueHaasGrotText-55Roman-Trial.otf') format('opentype');
@@ -63,8 +60,6 @@
 }
 
 @theme {
-  /* One typeface family, two optical sizes: Display for headings/large
-     type, Text for body copy and UI, matching how the collection is cut. */
   --font-serif: 'Neue Haas Grotesk Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-sans: 'Neue Haas Grotesk Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -80,7 +75,6 @@
   --color-rule: #ddd8d0;
   --color-rule-soft: #eae6df;
 
-  /* Single responsive breakpoint per the design spec. */
   --breakpoint-md: 860px;
 
   --radius-none: 0px;

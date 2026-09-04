@@ -1,10 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { researchThrusts } from '../../data/researchThrusts';
+import { systemTypes } from '../../data/systems';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
 const countByThrust = (slug: string) => projects.filter((p) => p.data.thrust === slug).length;
+
+const systemEntries = await getCollection('systemProjects');
+const countBySystem = (slug: string) => systemEntries.filter((e) => e.data.system === slug).length;
 ---
 
 <BaseLayout
@@ -22,8 +26,9 @@ const countByThrust = (slug: string) => projects.filter((p) => p.data.thrust ===
   </section>
 
   <section class="border-rule border-t">
-    <div class="wrap py-4">
-      <ul class="list-none p-0">
+    <div class="wrap py-12">
+      <span class="eyebrow">Research thrusts</span>
+      <ul class="mt-4 list-none p-0">
         {
           researchThrusts.map((thrust) => (
             <li class="border-rule-soft grid grid-cols-1 gap-3 border-t py-8 first:border-t-0 md:grid-cols-[72px_1fr] md:gap-5">
@@ -40,6 +45,39 @@ const countByThrust = (slug: string) => projects.filter((p) => p.data.thrust ===
                   class="font-sans text-sm font-medium no-underline"
                 >
                   {countByThrust(thrust.slug)} project{countByThrust(thrust.slug) === 1 ? '' : 's'} &rarr;
+                </a>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-12">
+      <span class="eyebrow">Systems we study</span>
+      <p class="text-text mt-1 mb-6 max-w-[62ch]">
+        A second, cross-cutting way to look at the same work: grouped by who is collaborating with
+        whom, rather than by research method.
+      </p>
+      <ul class="list-none p-0">
+        {
+          systemTypes.map((system) => (
+            <li class="border-rule-soft grid grid-cols-1 gap-3 border-t py-8 first:border-t-0 md:grid-cols-[72px_1fr] md:gap-5">
+              <span class="font-serif text-maroon text-[2.25rem] leading-none">{system.letter}</span>
+              <div>
+                <h2 class="mb-2">
+                  <a href={`/research/systems/${system.slug}`} class="text-ink hover:text-maroon no-underline">
+                    {system.title}
+                  </a>
+                </h2>
+                <p class="text-text max-w-[60ch]">{system.summary}</p>
+                <a
+                  href={`/research/systems/${system.slug}`}
+                  class="font-sans text-sm font-medium no-underline"
+                >
+                  {countBySystem(system.slug)} project{countBySystem(system.slug) === 1 ? '' : 's'} &rarr;
                 </a>
               </div>
             </li>

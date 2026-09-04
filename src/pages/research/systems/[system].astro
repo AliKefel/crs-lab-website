@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { systemTypes } from '../../../data/systems';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('systemProjects');
+  return systemTypes.map((system) => ({
+    params: { system: system.slug },
+    props: {
+      system,
+      entries: entries.filter((e) => e.data.system === system.slug).sort((a, b) => a.data.order - b.data.order),
+    },
+  }));
+}
+
+const { system, entries } = Astro.props;
+---
+
+<BaseLayout title={system.title} description={system.summary}>
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">Research &middot; Systems &middot; {system.letter}</span>
+    <h1>{system.title}</h1>
+    <p class="text-text max-w-[62ch] text-lg">{system.summary}</p>
+    <a href="/research" class="font-sans text-sm font-medium no-underline">&larr; All research areas</a>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap py-12">
+      {
+        entries.length === 0 ? (
+          <p class="text-muted">No projects have been published under this system type yet.</p>
+        ) : (
+          <ul class="list-none p-0">
+            {entries.map(async (entry) => {
+              const { Content } = await render(entry);
+              return (
+                <li class="border-rule grid grid-cols-1 gap-6 border-t py-12 first:border-t-0 md:grid-cols-[1.2fr_1fr] md:gap-10">
+                  <div>
+                    <span class="eyebrow">{entry.data.category}</span>
+                    <h2 class="mb-3 text-[1.3rem]">{entry.data.title}</h2>
+                    <div class="prose-content text-text">
+                      <Content />
+                    </div>
+                    {entry.data.citation && (
+                      <p class="meta mt-4">
+                        {entry.data.citationUrl ? (
+                          <a href={entry.data.citationUrl} target="_blank" rel="noopener noreferrer">
+                            {entry.data.citation}
+                          </a>
+                        ) : (
+                          entry.data.citation
+                        )}
+                      </p>
+                    )}
+                  </div>
+                  {entry.data.images.length > 0 && (
+                    <div class="flex flex-col gap-6">
+                      {entry.data.images.map((image) => (
+                        <figure class="m-0">
+                          <img src={image} alt={entry.data.title} class="w-full h-auto" />
+                          <figcaption>{entry.data.title}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

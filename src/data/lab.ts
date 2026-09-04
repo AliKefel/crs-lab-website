@@ -1,5 +1,5 @@
 export const lab = {
-  name: 'Cooperative Robotic Systems Laboratory',
+  name: 'Cooperative Robotic Systems (CRS) Laboratory',
   shortName: 'CRS Lab',
   institution: 'Arizona State University',
   department: 'School of Computing and Augmented Intelligence',
@@ -10,6 +10,7 @@ export const lab = {
   mission:
     'The CRS Lab works at the intersection of artificial intelligence and robotics, with an emphasis on human-robot teaming, multi-agent systems, distributed robotic systems, human-robot interaction, and planning and automated reasoning.',
   funders: [
+    'Arizona State University',
     'National Science Foundation',
     'Air Force Office of Scientific Research',
     'NASA',

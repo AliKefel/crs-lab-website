@@ -20,11 +20,17 @@ const { thrust, projects } = Astro.props;
 ---
 
 <BaseLayout title={thrust.title} description={thrust.description}>
-  <section class="wrap py-14 pb-10">
-    <span class="eyebrow">Research &middot; {thrust.number}</span>
-    <h1>{thrust.title}</h1>
-    <p class="text-text max-w-[62ch] text-lg">{thrust.description}</p>
-    <a href="/research" class="font-sans text-sm font-medium no-underline">&larr; All research areas</a>
+  <section class="wrap grid grid-cols-1 items-start gap-8 py-14 pb-10 md:grid-cols-[1.2fr_1fr] md:gap-12">
+    <div>
+      <span class="eyebrow">Research &middot; {thrust.number}</span>
+      <h1>{thrust.title}</h1>
+      <p class="text-text max-w-[62ch] text-lg">{thrust.description}</p>
+      <a href="/research" class="font-sans text-sm font-medium no-underline">&larr; All research areas</a>
+    </div>
+    <figure class="m-0">
+      <img src={thrust.image} alt={thrust.imageAlt} class="w-full h-auto" />
+      <figcaption>{thrust.imageAlt}</figcaption>
+    </figure>
   </section>
 
   <section class="border-rule border-t">
@@ -43,7 +49,7 @@ const { thrust, projects } = Astro.props;
                   <h3 class="mb-2 flex items-baseline gap-2">
                     {project.data.title}
                     {project.data.featured && (
-                      <span class="text-gold text-[11px] font-semibold tracking-[0.1em] uppercase">
+                      <span class="text-gold font-sans text-[11px] font-medium tracking-[0.1em] uppercase">
                         Featured
                       </span>
                     )}

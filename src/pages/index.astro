@@ -14,7 +14,7 @@ const news = (await getCollection('news'))
   <section class="wrap grid grid-cols-1 items-center gap-8 py-14 pb-10 md:grid-cols-[1.2fr_1fr] md:gap-12">
     <div>
       <span class="eyebrow">{lab.director}, {lab.directorTitle}</span>
-      <h1>{lab.name}</h1>
+      <h1 class="text-md">{lab.name}</h1>
       <p class="text-text max-w-[62ch] text-lg">{lab.mission}</p>
       <div class="mt-2 flex flex-wrap gap-6">
         <a href="/research" class="font-sans text-sm font-medium no-underline">Research areas &rarr;</a>
@@ -23,7 +23,7 @@ const news = (await getCollection('news'))
       </div>
     </div>
     <figure class="m-0">
-      <img src={lab.heroImage} alt={lab.heroImageAlt} class="aspect-4/3 w-full object-cover" />
+      <img src={lab.heroImage} alt={lab.heroImageAlt} class="w-full h-auto" />
       <figcaption>{lab.heroImageCaption}</figcaption>
     </figure>
   </section>
