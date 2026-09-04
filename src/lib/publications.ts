@@ -15,11 +15,13 @@ export interface Publication {
   authors: PublicationAuthor[];
   year: number;
   venue: string;
-  venueType: 'journal' | 'conference';
+  venueType: 'journal' | 'conference' | 'workshop' | 'dissertation';
   doi?: string;
   pdf?: string;
   code?: string;
   url?: string;
+  abstract?: string;
+  award?: string;
   bibtex: string;
 }
 
@@ -66,12 +68,19 @@ function isLabAuthor(given: string, family: string): boolean {
   });
 }
 
-/** Splits the raw .bib source into per-entry field maps, keyed by citation key. */
-function extractRawEntries(raw: string): Map<string, { fields: Record<string, string>; block: string }> {
-  const entries = new Map<string, { fields: Record<string, string>; block: string }>();
+interface RawEntry {
+  type: string;
+  fields: Record<string, string>;
+  block: string;
+}
+
+// splits the raw .bib source into per-entry field maps keyed by citation key
+function extractRawEntries(raw: string): Map<string, RawEntry> {
+  const entries = new Map<string, RawEntry>();
   const entryRegex = /@(\w+)\{([^,]+),([\s\S]*?)\n\}/g;
   let match: RegExpExecArray | null;
   while ((match = entryRegex.exec(raw))) {
+    const type = match[1].toLowerCase();
     const key = match[2].trim();
     const body = match[3];
     const block = match[0];
@@ -81,7 +90,7 @@ function extractRawEntries(raw: string): Map<string, { fields: Record<string, st
     while ((fieldMatch = fieldRegex.exec(body))) {
       fields[fieldMatch[1].toLowerCase()] = fieldMatch[2].trim();
     }
-    entries.set(key, { fields, block });
+    entries.set(key, { type, fields, block });
   }
   return entries;
 }
@@ -98,6 +107,24 @@ function parseAuthors(raw: string): { given: string; family: string }[] {
   });
 }
 
+function deriveVenueType(record: RawEntry): Publication['venueType'] {
+  if (record.fields.venue_type === 'workshop') return 'workshop';
+  if (record.type === 'article') return 'journal';
+  if (record.type === 'phdthesis') return 'dissertation';
+  return 'conference';
+}
+
+// presentation only fields that should never appear in the copyable BibTeX.
+const INTERNAL_FIELDS = new Set(['abstract', 'award', 'venue_type', 'pdf', 'code']);
+
+function cleanBibtex(record: RawEntry, key: string): string {
+  const lines = Object.entries(record.fields)
+    .filter(([field]) => !INTERNAL_FIELDS.has(field))
+    .map(([field, value]) => `  ${field} = {${value}}`)
+    .join(',\n');
+  return `@${record.type}{${key},\n${lines}\n}`;
+}
+
 export const publications: Publication[] = csl.map((entry) => {
   const record = rawEntries.get(entry.id);
   const fields = record?.fields ?? {};
@@ -105,8 +132,7 @@ export const publications: Publication[] = csl.map((entry) => {
     ...a,
     isLabAuthor: isLabAuthor(a.given, a.family),
   }));
-  const venue = fields.booktitle ?? fields.journal ?? '';
-  const venueType: Publication['venueType'] = fields.journal ? 'journal' : 'conference';
+  const venue = fields.booktitle ?? fields.journal ?? fields.school ?? '';
 
   return {
     id: entry.id,
@@ -114,12 +140,14 @@ export const publications: Publication[] = csl.map((entry) => {
     authors,
     year: Number(fields.year) || 0,
     venue,
-    venueType,
+    venueType: record ? deriveVenueType(record) : 'conference',
     doi: fields.doi,
     pdf: fields.pdf,
     code: fields.code,
     url: fields.url,
-    bibtex: record?.block.trim() ?? '',
+    abstract: fields.abstract,
+    award: fields.award,
+    bibtex: record ? cleanBibtex(record, entry.id) : '',
   };
 });
 

@@ -1,15 +1,72 @@
 @import 'tailwindcss';
 
-@import '@fontsource/source-serif-4/400.css';
-@import '@fontsource/source-serif-4/600.css';
-@import '@fontsource/source-serif-4/400-italic.css';
-@import '@fontsource/inter-tight/400.css';
-@import '@fontsource/inter-tight/500.css';
-@import '@fontsource/inter-tight/600.css';
+/* Neue Haas Grotesk Display: headings, eyebrow numerals, pull quotes.
+   Optically cut for larger sizes. */
+@font-face {
+  font-family: 'Neue Haas Grotesk Display';
+  src: url('/fonts/NeueHaasGrotDisp-55Roman-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Haas Grotesk Display';
+  src: url('/fonts/NeueHaasGrotDisp-56Italic-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Haas Grotesk Display';
+  src: url('/fonts/NeueHaasGrotDisp-65Medium-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Haas Grotesk Display';
+  src: url('/fonts/NeueHaasGrotDisp-75Bold-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Neue Haas Grotesk Text: body copy, navigation, labels, UI.
+   Optically cut for smaller sizes. */
+@font-face {
+  font-family: 'Neue Haas Grotesk Text';
+  src: url('/fonts/NeueHaasGrotText-55Roman-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Haas Grotesk Text';
+  src: url('/fonts/NeueHaasGrotText-56Italic-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Haas Grotesk Text';
+  src: url('/fonts/NeueHaasGrotText-65Medium-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neue Haas Grotesk Text';
+  src: url('/fonts/NeueHaasGrotText-75Bold-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
-  --font-serif: 'Source Serif 4', Georgia, serif;
-  --font-sans: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
+  /* One typeface family, two optical sizes: Display for headings/large
+     type, Text for body copy and UI, matching how the collection is cut. */
+  --font-serif: 'Neue Haas Grotesk Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: 'Neue Haas Grotesk Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   --color-maroon: #7c1b37;
   --color-maroon-deep: #5e1429;
@@ -53,7 +110,7 @@
   h4,
   h5,
   h6 {
-    @apply font-serif text-ink font-semibold;
+    @apply font-serif text-ink font-medium;
     line-height: 1.2;
     text-wrap: balance;
     margin: 0 0 0.5em;
@@ -142,7 +199,7 @@
   }
 
   .eyebrow {
-    @apply text-maroon block font-sans text-[11px] font-semibold tracking-[0.14em] uppercase;
+    @apply text-maroon block font-sans text-[11px] font-medium tracking-[0.14em] uppercase;
     margin-bottom: 0.6em;
   }
 
