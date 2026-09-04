@@ -1,16 +1,20 @@
 ---
 import { nav } from '../data/lab';
 import MobileNavToggle from './MobileNavToggle';
+import ThemeToggle from './ThemeToggle';
 
 const path = Astro.url.pathname.replace(/\/index\.html$/, '');
 const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 
 <nav class="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between" aria-label="Primary">
-  <MobileNavToggle client:visible />
+  <div class="flex items-center justify-end gap-2 md:order-2">
+    <ThemeToggle client:load />
+    <MobileNavToggle client:visible />
+  </div>
   <ul
     id="primary-nav-list"
-    class="border-rule-soft m-0 flex list-none flex-col gap-0.5 border-t p-0 pt-2 md:mt-0 md:flex-row md:gap-7 md:border-0 md:pt-0"
+    class="border-rule-soft m-0 flex list-none flex-col gap-0.5 border-t p-0 pt-2 md:order-1 md:mt-0 md:flex-row md:gap-7 md:border-0 md:pt-0"
   >
     {
       nav.map((item) => (

@@ -12,17 +12,13 @@ export default function MobileNavToggle() {
   return (
     <button
       type="button"
-      class="text-ink border-rule inline-flex cursor-pointer items-center gap-2 self-end border bg-transparent px-3 py-2 text-xs tracking-wider uppercase md:hidden"
+      class="text-muted hover:text-maroon hover:bg-rule-soft inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center bg-transparent transition-colors duration-200 md:hidden"
       aria-expanded={open}
       aria-controls="primary-nav-list"
+      aria-label={open ? 'Close menu' : 'Open menu'}
       onClick={() => setOpen((o) => !o)}
     >
-      <span>{open ? 'Close' : 'Menu'}</span>
-      <span class="flex flex-col gap-[3px]" aria-hidden="true">
-        <span class="bg-ink block h-px w-4"></span>
-        <span class="bg-ink block h-px w-4"></span>
-        <span class="bg-ink block h-px w-4"></span>
-      </span>
+      <i class={`fa-solid ${open ? 'fa-xmark' : 'fa-bars'} text-[15px]`} aria-hidden="true" />
     </button>
   );
 }

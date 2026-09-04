@@ -11,40 +11,60 @@ faculty:
       - Human-robot teaming
       - Multi-agent systems
       - Planning and automated reasoning
-    photo: /people/yu-zhang.jpg
+    photo: /people/yu.png
     links:
       email: yzhan442@asu.edu
+      scholar: https://scholar.google.com/citations?user=n0uRPLgAAAAJ&hl=en
 
 postdocs: []
 
 phd:
   - name: Taha Shaheen
     role: "Ph.D. Student · Fall 2023–present"
-  - name: Abdulaziz Alaqeel
-    role: "Ph.D. Student · Fall 2023–present"
-  - name: Qihao Qin
-    role: "Ph.D. Student · Fall 2023–present"
+    photo: /people/taha.png
+    links:
+      linkedin: https://www.linkedin.com/in/taha-shaheen/
+      website: https://tahashaheen.github.io/
+      scholar: https://scholar.google.com/citations?user=cEGtSWAAAAAJ
+      github: https://github.com/tahashaheen
   - name: Kevin Jatin Vora
     role: "Ph.D. Student · Fall 2021–present"
     note: "M.S., Spring 2020–Summer 2021"
+    photo: /people/kevin.png
+    links:
+      linkedin: https://www.linkedin.com/in/kevin-vora/
+      website: https://kevin-jatin-vora.github.io/#/
+      scholar: https://scholar.google.com/citations?user=rCeJKCQAAAAJ&hl=en
+      github: https://github.com/kevin-jatin-vora
   - name: Winston Smith
     role: "Ph.D. Student · Fall 2019–present"
   - name: Andrew Boateng
     role: "Ph.D. Student · Spring 2019–present"
+    photo: /people/andrew.png
+    links:
+      linkedin: https://www.linkedin.com/in/andrew-boateng-28090889
+      scholar: https://scholar.google.com/citations?user=igtBLHEAAAAJ&hl=en
   - name: Akkamahadevi Hanni
     role: "Ph.D. Student · Spring 2019–present"
+    photo: /people/akku.jpeg
+    links:
+      linkedin: https://www.linkedin.com/in/arhanni/
+      scholar: https://scholar.google.com/citations?user=sDZ4u1oAAAAJ&hl=en
 
 ms:
-  - name: Ethan Clark
-    role: "M.S. Student (Thesis) · Spring 2022–present"
+  - name: Utkarsh Ankit
+    role: "M.S. Student (Thesis) · Fall 2024–present"
   - name: Brent Julius
     role: "M.S. Student (Thesis) · Spring 2024–present"
 
 alumni:
+  - name: Ethan Clark
+    role: "M.S. (Thesis) · Spring 2022–Spring 2025"
   - name: Upasana Biswas
     role: "M.S. (Thesis) · Spring 2022–Summer 2023"
   - name: Mitchell Bucklew
     role: "M.S. (Thesis) · Spring 2021–Fall 2022"
+    note: "Now at SpaceX"
   - name: Calvin Ferraro
     role: "M.S. (Thesis) · Spring 2021–Summer 2022"
   - name: Ze Gong

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { lab } from '../data/lab';
+
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(lab.address)}&output=embed`;
+---
+
+<BaseLayout title="Contact" description={`Get in touch with the ${lab.shortName} at ${lab.institution}.`}>
+  <section class="wrap py-14 pb-10">
+    <span class="eyebrow">Contact</span>
+    <h1>Get in touch</h1>
+    <p class="text-text max-w-[62ch] text-lg">
+      For research inquiries, collaborations, or prospective student questions, please reach out to email below.
+    </p>
+  </section>
+
+  <section class="border-rule border-t">
+    <div class="wrap grid grid-cols-1 gap-10 py-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
+      <div>
+        <span class="eyebrow">Lab Director</span>
+        <h2 class="mb-1">{lab.director}</h2>
+        <p class="meta mb-4">{lab.directorTitle}</p>
+        <p class="text-text mb-1">{lab.department}</p>
+        <p class="text-text mb-4">{lab.institution}</p>
+        <a href={`mailto:${lab.email}`} class="text-maroon hover:text-maroon-deep text-sm">
+          {lab.email}
+        </a>
+      </div>
+
+      <div>
+        <span class="eyebrow">Location</span>
+        <h2 class="mb-1">{lab.shortName}</h2>
+        <p class="text-text mb-6">{lab.address}</p>
+        <div class="border-rule aspect-[4/3] w-full overflow-hidden border md:aspect-[16/10]">
+          <iframe
+            src={mapSrc}
+            class="h-full w-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Map showing the location of the ${lab.shortName}`}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

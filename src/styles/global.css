@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+@import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+@import '@fortawesome/fontawesome-free/css/solid.min.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 
 @font-face {
@@ -75,15 +79,36 @@
   --color-rule: #ddd8d0;
   --color-rule-soft: #eae6df;
 
+  --color-chrome: #16181a;
+  --color-chrome-fg: #fbfaf8;
+
   --breakpoint-md: 860px;
 
   --radius-none: 0px;
+}
+
+.dark {
+  --color-maroon: #d9647f;
+  --color-maroon-deep: #ec93a6;
+  --color-gold: #d3ac5f;
+  --color-ink: #f2f0ec;
+  --color-text: #d3d0ca;
+  --color-muted: #9a9c9f;
+  --color-faint: #75787b;
+  --color-bg: #131315;
+  --color-paper: #1b1c1f;
+  --color-rule: #34363a;
+  --color-rule-soft: #26282b;
 }
 
 @layer base {
   html {
     background-color: var(--color-bg);
     color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {

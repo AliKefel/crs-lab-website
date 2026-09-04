@@ -1,0 +1,31 @@
+---
+interface Props {
+  name: 'linkedin' | 'scholar' | 'website';
+  class?: string;
+}
+
+const { name, class: className = 'h-4 w-4' } = Astro.props;
+---
+
+{
+  name === 'linkedin' && (
+    <svg viewBox="0 0 24 24" fill="currentColor" class={className} aria-hidden="true">
+      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5zM.5 8.5h4v15h-4v-15zM8.5 8.5h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v8.9h-4v-7.9c0-1.88-.04-4.3-2.63-4.3-2.63 0-3.03 2.02-3.03 4.16v8.04h-4v-15z" />
+    </svg>
+  )
+}
+{
+  name === 'scholar' && (
+    <svg viewBox="0 0 24 24" fill="currentColor" class={className} aria-hidden="true">
+      <path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3Zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9ZM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72Z" />
+    </svg>
+  )
+}
+{
+  name === 'website' && (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.7 4 6.1 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6.1-4-9s1.5-6.3 4-9Z" />
+    </svg>
+  )
+}

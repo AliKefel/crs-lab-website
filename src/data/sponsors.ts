@@ -9,7 +9,6 @@ export interface Sponsor {
 // another sponsor to credit; the strip on the homepage renders whatever
 // is in this list.
 export const sponsors: Sponsor[] = [
-  {name: 'Arizona State University', logo: '/branding/asu.png', href: 'https://www.asu.edu/'},
   {
     name: 'Air Force Office of Scientific Research',
     logo: '/sponsors/AFSOR.png',
@@ -18,4 +17,5 @@ export const sponsors: Sponsor[] = [
   { name: 'National Science Foundation', logo: '/sponsors/NSF.png', href: 'https://www.nsf.gov' },
   { name: 'NASA', logo: '/sponsors/nasa.png', href: 'https://www.nasa.gov' },
   { name: 'Office of Naval Research', logo: '/sponsors/ONR.png', href: 'https://www.onr.navy.mil' },
+  {name: 'Arizona State University', logo: '/branding/ASU_University_1_Horiz_RGB_MaroonGold_600ppi.png', href: 'https://www.asu.edu/'},
 ];

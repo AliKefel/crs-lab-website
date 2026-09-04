@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 import { people, peopleGroupOrder, peopleGroupLabels, getInitials } from '../lib/people';
 
 const groups = peopleGroupOrder.filter((key) => people[key].length > 0);
@@ -41,26 +42,47 @@ const groups = peopleGroupOrder.filter((key) => people[key].length > 0);
                   {person.interests.length > 0 && (
                     <p class="text-text mb-2 text-sm">{person.interests.join(' · ')}</p>
                   )}
-                  <div class="flex flex-wrap gap-x-3 gap-y-1 text-sm">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                     {person.links.email && <a href={`mailto:${person.links.email}`}>Email</a>}
-                    {person.links.website && (
-                      <a href={person.links.website} target="_blank" rel="noopener noreferrer">
-                        Website
-                      </a>
-                    )}
-                    {person.links.scholar && (
-                      <a href={person.links.scholar} target="_blank" rel="noopener noreferrer">
-                        Scholar
-                      </a>
-                    )}
                     {person.links.github && (
                       <a href={person.links.github} target="_blank" rel="noopener noreferrer">
                         GitHub
                       </a>
                     )}
+                    {person.links.website && (
+                      <a
+                        href={person.links.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-maroon hover:text-maroon-deep"
+                        aria-label={`${person.name}'s website`}
+                        title="Website"
+                      >
+                        <SocialIcon name="website" />
+                      </a>
+                    )}
+                    {person.links.scholar && (
+                      <a
+                        href={person.links.scholar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-maroon hover:text-maroon-deep"
+                        aria-label={`${person.name} on Google Scholar`}
+                        title="Google Scholar"
+                      >
+                        <SocialIcon name="scholar" />
+                      </a>
+                    )}
                     {person.links.linkedin && (
-                      <a href={person.links.linkedin} target="_blank" rel="noopener noreferrer">
-                        LinkedIn
+                      <a
+                        href={person.links.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-maroon hover:text-maroon-deep"
+                        aria-label={`${person.name} on LinkedIn`}
+                        title="LinkedIn"
+                      >
+                        <SocialIcon name="linkedin" />
                       </a>
                     )}
                   </div>
