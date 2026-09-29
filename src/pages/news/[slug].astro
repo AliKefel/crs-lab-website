@@ -21,7 +21,7 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
 
 <BaseLayout title={post.data.title} description={post.data.summary}>
   <article class="wrap py-14 pb-16">
-    <a href="/news" class="font-sans text-sm font-medium no-underline">&larr; All news</a>
+    <a href="/news" data-pagefind-ignore class="font-sans text-sm font-medium no-underline">&larr; All news</a>
     <p class="meta mt-6 mb-2">{formattedDate}</p>
     <h1>{post.data.title}</h1>
     {post.data.image && (

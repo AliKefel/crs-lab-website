@@ -11,3 +11,6 @@ npm-debug.log*
 # Full licensed font collection (source download) — only the weight files
 # actually used are committed, under public/fonts/.
 /Neue_Haas_Grotesk_Collection/
+
+
+public/pagefind/

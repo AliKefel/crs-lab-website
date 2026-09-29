@@ -111,8 +111,8 @@ function PublicationEntry({ pub }: { pub: Publication }) {
   }
 
   return (
-    <li class="border-rule-soft border-t py-9 first:border-t-0 first:pt-0">
-      <h3 class="mb-2 flex flex-wrap items-baseline gap-2 text-[1.05rem]">
+    <li id={pub.id} class="border-rule-soft border-t py-9 first:border-t-0 first:pt-0 scroll-mt-6">
+      <h3 id={`${pub.id}-title`} class="mb-2 flex flex-wrap items-baseline gap-2 text-[1.05rem]">
         {pub.title}
         {pub.award && (
           <span class="text-gold font-sans text-[11px] font-medium tracking-[0.1em] uppercase">{pub.award}</span>
@@ -132,8 +132,9 @@ function PublicationEntry({ pub }: { pub: Publication }) {
         </PillButton>
       </div>
 
-      {openPanel === 'abs' && pub.abstract && (
-        <div class="border-rule bg-paper mt-4 rounded-xl border p-5">
+      {/* Always in the DOM (just hidden) so Pagefind can index abstracts at build time. */}
+      {pub.abstract && (
+        <div hidden={openPanel !== 'abs'} class="border-rule bg-paper mt-4 rounded-xl border p-5">
           <p class="text-text m-0 text-sm leading-relaxed">{pub.abstract}</p>
         </div>
       )}

@@ -1,5 +1,8 @@
 ---
 import Nav from './Nav.astro';
+import MobileNavToggle from './MobileNavToggle';
+import ThemeToggle from './ThemeToggle';
+import SearchBox from './SearchBox';
 import { lab } from '../data/lab';
 ---
 
@@ -7,13 +10,18 @@ import { lab } from '../data/lab';
   <div class="bg-chrome text-chrome-fg py-1.5 text-[11px] tracking-[0.1em] uppercase">
     <div class="wrap">{lab.institution} &middot; {lab.department}</div>
   </div>
-  <div class="wrap border-rule flex flex-col items-stretch gap-3.5 border-b py-5.5 md:flex-row md:items-end md:justify-between md:gap-6 md:py-6">
-    <a href="/" class="flex items-center gap-4 no-underline">
+  <div class="wrap border-rule flex flex-wrap items-center justify-between gap-x-6 gap-y-3.5 border-b py-5.5 md:flex-nowrap md:items-end md:py-6">
+    <a href="/" class="order-1 flex items-center gap-4 no-underline">
       <img src={lab.asuLogo} alt="Arizona State University" class="h-9 w-auto shrink-0" />
       <span class="bg-rule h-8 w-px shrink-0" aria-hidden="true"></span>
       <img src={lab.labLogo} alt={lab.name} class="h-9 w-auto shrink-0" />
       <span class="text-muted font-sans text-xs hidden md:inline">{lab.name}</span>
     </a>
+    <div class="order-2 flex items-center justify-end gap-2 md:order-3">
+      <SearchBox client:load />
+      <ThemeToggle client:load />
+      <MobileNavToggle client:visible />
+    </div>
     <Nav />
   </div>
 </header>
