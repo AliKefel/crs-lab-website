@@ -38,6 +38,7 @@ phd:
       github: https://github.com/kevin-jatin-vora
   - name: Winston Smith
     role: "Ph.D. Student · Fall 2019–present"
+    photo: /people/Winston.png
   - name: Andrew Boateng
     role: "Ph.D. Student · Spring 2019–present"
     photo: /people/andrew.png
@@ -54,6 +55,8 @@ phd:
 ms:
   - name: Utkarsh Ankit
     role: "M.S. Student (Thesis) · Fall 2024–present"
+    photo: /people/Utkarsh.png
+
   - name: Brent Julius
     role: "M.S. Student (Thesis) · Spring 2024–present"
 
